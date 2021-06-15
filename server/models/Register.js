@@ -1,11 +1,10 @@
-module.exports = (sequelize,DataTypes)=>{
+module.exports = (sequelize,DataTypes) =>{
 const Register = sequelize.define("Register",{
 id:{
     primaryKey:true,
     type:DataTypes.INTEGER,
     autoIncrement:true
 },
-
 name:
 {
    type:DataTypes.STRING,
@@ -36,16 +35,17 @@ role:
    type:DataTypes.STRING,
    allowNull:false
 },
-isApproved:
-{
-   type:DataTypes.BOOLEAN,
-   allowNull:false
-}
+// isApproved:
+// {
+//    type:DataTypes.BOOLEAN,
+//    allowNull:false
+// }
 },
 {
     createdAt:false,
     updatedAt:false
-})
+}
+);
 
 return Register;
 }
