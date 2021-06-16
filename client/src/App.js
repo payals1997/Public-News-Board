@@ -18,6 +18,7 @@ function App() {
       );
       myvar = myAllCategories;
       console.log(myAllCategories);
+      // eslint-disable-next-line array-callback-return
       myAllCategories.data.map((cat) => {
         setAllCategory((arr) => [...arr, cat.category]);
       });
@@ -25,6 +26,7 @@ function App() {
       const myAllNewsCity = await axios.get(
         `http://localhost:3001/newsBlogs/allNewsCity`
       );
+      // eslint-disable-next-line array-callback-return
       myAllNewsCity.data.map((cat) => {
         setAllNewsCategory((arr) => [...arr, cat.newsCity]);
       });
@@ -36,7 +38,7 @@ function App() {
   useEffect(() => {
     newsApi();
     // eslint-disable-next-line
-  }, [category, newsCity]);
+  }, []);
 
   return (
     <div className="App" id="#home">

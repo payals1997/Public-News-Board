@@ -139,7 +139,6 @@ export default function SwipeableTemporaryDrawer({
     <div>
       <Button onClick={toggleDrawer("left", true)}>
         {/* hamberger added icon, we have not created MenuIcon ,we have directly imported it from material UI and used it here */}
-
         <MenuIcon />
       </Button>
 
@@ -160,5 +159,4 @@ export default function SwipeableTemporaryDrawer({
     </div>
   );
 }
-
 // completed
