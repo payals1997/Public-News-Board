@@ -45,10 +45,12 @@ const useStyles = makeStyles({
 });
 
 export default function SwipeableTemporaryDrawer({
-  setCategory,
-  setNewsCity,
+  // setCategory,
+  // setNewsCity,
+  setCatAndCity,
   allCategory,
   allNewsCity,
+  catAndCity,
 }) {
   console.log(allCategory);
   const classes = useStyles();
@@ -106,7 +108,7 @@ export default function SwipeableTemporaryDrawer({
           <ListItem
             style={{ height: 40, borderRadius: 3 }}
             button
-            onClick={() => setCategory(text)}
+            onClick={() => setCatAndCity({ ...catAndCity, category: text })}
             key={text}
           >
             <ListItemText primary={text} />
@@ -125,7 +127,7 @@ export default function SwipeableTemporaryDrawer({
           <ListItem
             style={{ height: 40, borderRadius: 3 }}
             button
-            onClick={() => setNewsCity(text)}
+            onClick={() => setCatAndCity({ ...catAndCity, city: text })}
             key={text}
           >
             <ListItemText primary={text} />
