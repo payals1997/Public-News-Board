@@ -13,8 +13,8 @@ app.use(cors(corsOptions));
 
 //Routers
 
-const newsBlog_router = require("./routes/newsBlog-routes");
-app.use("/newsBlogs", newsBlog_router);
+const myTrendStateRoutes = require("./routes/trend-state-routes");
+app.use("/trendState", myTrendStateRoutes);
 
 db.sequelize.sync({ force: false }).then(() => {
   app.listen("3001", () => {

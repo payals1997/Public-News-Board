@@ -21,6 +21,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 // import InboxIcon from "@material-ui/icons/MoveToInbox";
 
 // import MailIcon from "@material-ui/icons/Mail";
+import TrendingData from "./data";
 
 import MenuIcon from "@material-ui/icons/Menu"; // added
 
@@ -43,20 +44,13 @@ const useStyles = makeStyles({
     width: "auto",
   },
 });
-
-export default function SwipeableTemporaryDrawer({
-  // setCategory,
-  // setNewsCity,
-  setCatAndCity,
-  allCategory,
-  allNewsCity,
-  catAndCity,
-}) {
-  console.log(allCategory);
+//SwipeableTemporaryDrawer
+export default function Trending({ TrendingNews }) {
   const classes = useStyles();
 
   const [state, setState] = React.useState({
-    left: false,
+    // left: false,
+    right: false,
   });
 
   //---------------------------------------------------
@@ -67,7 +61,7 @@ export default function SwipeableTemporaryDrawer({
     () =>
       createMuiTheme({
         palette: {
-          type: prefersDarkMode ? "dark" : "light",
+          type: prefersDarkMode ? "light" : "dark",
         },
       }),
 
@@ -98,38 +92,14 @@ export default function SwipeableTemporaryDrawer({
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem>Categories</ListItem>
+        <ListItem> Trending News </ListItem>
       </List>
 
       <Divider />
 
       <List>
-        {allCategory.map((text, index) => (
-          <ListItem
-            style={{ height: 40, borderRadius: 3 }}
-            button
-            onClick={() => setCatAndCity({ ...catAndCity, category: text })}
-            key={text}
-          >
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        <ListItem>Cities</ListItem>
-      </List>
-
-      <Divider />
-
-      <List>
-        {allNewsCity.map((text, index) => (
-          <ListItem
-            style={{ height: 40, borderRadius: 3 }}
-            button
-            onClick={() => setCatAndCity({ ...catAndCity, city: text })}
-            key={text}
-          >
+        {TrendingNews.map((text, index) => (
+          <ListItem style={{ height: 40, borderRadius: 3 }} key={text}>
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -139,10 +109,7 @@ export default function SwipeableTemporaryDrawer({
 
   return (
     <div>
-      <Button onClick={toggleDrawer("left", true)}>
-        {/* hamberger added icon, we have not created MenuIcon ,we have directly imported it from material UI and used it here */}
-        <MenuIcon />
-      </Button>
+      <Button onClick={toggleDrawer("right", true)}>Trending News</Button>
 
       {/* added */}
 
@@ -150,12 +117,12 @@ export default function SwipeableTemporaryDrawer({
 
       <ThemeProvider theme={theme}>
         <SwipeableDrawer
-          anchor={"left"}
-          open={state["left"]}
-          onClose={toggleDrawer("left", false)}
-          onOpen={toggleDrawer("left", true)}
+          anchor={"right"}
+          open={state["right"]}
+          onClose={toggleDrawer("right", false)}
+          onOpen={toggleDrawer("right", true)}
         >
-          {list("left")}
+          {list("right")}
         </SwipeableDrawer>
       </ThemeProvider>
     </div>

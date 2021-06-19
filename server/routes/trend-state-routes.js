@@ -3,10 +3,10 @@ const router = express.Router();
 const { NewsBlogs } = require("../models");
 
 //Finding all data
-router.get("/", async (req, resp) => {
+/*router.get("/", async (req, resp) => {
   const TableData = await NewsBlogs.findAll();
   resp.json(TableData);
-});
+});*/
 
 // creating data in newsblog table
 router.post("/", async (req, resp) => {
@@ -14,7 +14,7 @@ router.post("/", async (req, resp) => {
   await NewsBlogs.create(row);
   resp.json(row);
 });
-
+/*
 // Finding data on the basis of category
 router.get("/category/:category", async (req, resp) => {
   const TableData = await NewsBlogs.findAll({
@@ -49,6 +49,16 @@ router.get("/allNewsCity", async (req, resp) => {
   const TableData = await NewsBlogs.findAll({
     attributes: ["newsCity"],
     group: ["newsCity"],
+  });
+  resp.json(TableData);
+});*/
+
+//
+router.get("/trending", async (req, resp) => {
+  const TableData = await NewsBlogs.findAll({
+    attributes: ["title"],
+    order: [["views", "DESC"]],
+    limit: 7,
   });
   resp.json(TableData);
 });
