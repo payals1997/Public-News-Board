@@ -33,9 +33,7 @@ import {
 const useStyles = makeStyles({
   list: {
     width: 200, // changed
-
     paddingLeft: 10, // changed
-
     paddingRight: 5, //changed
   },
 
@@ -45,8 +43,6 @@ const useStyles = makeStyles({
 });
 
 export default function SwipeableTemporaryDrawer({
-  // setCategory,
-  // setNewsCity,
   setCatAndCity,
   allCategory,
   allNewsCity,
@@ -54,7 +50,6 @@ export default function SwipeableTemporaryDrawer({
 }) {
   console.log(allCategory);
   const classes = useStyles();
-
   const [state, setState] = React.useState({
     left: false,
   });
@@ -67,7 +62,7 @@ export default function SwipeableTemporaryDrawer({
     () =>
       createMuiTheme({
         palette: {
-          type: prefersDarkMode ? "dark" : "light",
+          type: prefersDarkMode ? "light" : "dark",
         },
       }),
 
@@ -77,6 +72,9 @@ export default function SwipeableTemporaryDrawer({
   //----------------------------------------------------
 
   const toggleDrawer = (anchor, open) => (event) => {
+    open === true
+      ? setCatAndCity({ category: "all", city: "all" })
+      : console.log("test");
     if (
       event &&
       event.type === "keydown" &&
@@ -94,8 +92,6 @@ export default function SwipeableTemporaryDrawer({
         [classes.fullList]: anchor === "top" || anchor === "bottom",
       })}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
         <ListItem>Categories</ListItem>
