@@ -56,9 +56,18 @@ router.get("/allNewsCity", async (req, resp) => {
 //
 router.get("/trending", async (req, resp) => {
   const TableData = await NewsBlogs.findAll({
-    attributes: ["title"],
+    attributes: ["title", "views"],
     order: [["views", "DESC"]],
-    limit: 7,
+    limit: 5,
+  });
+  resp.json(TableData);
+});
+
+router.get("/viewsinfo", async (req, resp) => {
+  const TableData = await NewsBlogs.findAll({
+    attributes: ["views"],
+    order: [["views", "DESC"]],
+    limit: 5,
   });
   resp.json(TableData);
 });

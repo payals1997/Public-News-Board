@@ -1,29 +1,12 @@
 import React from "react";
-
 import clsx from "clsx";
-
 import { makeStyles } from "@material-ui/core/styles";
-
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-
 import Button from "@material-ui/core/Button";
-
 import List from "@material-ui/core/List";
-
 import Divider from "@material-ui/core/Divider";
-
 import ListItem from "@material-ui/core/ListItem";
-
-// import ListItemIcon from "@material-ui/core/ListItemIcon";
-
 import ListItemText from "@material-ui/core/ListItemText";
-
-// import InboxIcon from "@material-ui/icons/MoveToInbox";
-
-// import MailIcon from "@material-ui/icons/Mail";
-import TrendingData from "./data";
-
-import MenuIcon from "@material-ui/icons/Menu"; // added
 
 import {
   createMuiTheme,
@@ -34,10 +17,10 @@ import {
 const useStyles = makeStyles({
   list: {
     width: 200, // changed
-
     paddingLeft: 10, // changed
-
     paddingRight: 5, //changed
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 
   fullList: {
@@ -64,11 +47,10 @@ export default function Trending({ TrendingNews }) {
           type: prefersDarkMode ? "light" : "dark",
         },
       }),
-
     [prefersDarkMode]
   );
 
-  //----------------------------------------------------
+  // ----------------------------------------------------
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -94,9 +76,7 @@ export default function Trending({ TrendingNews }) {
       <List>
         <ListItem> Trending News </ListItem>
       </List>
-
       <Divider />
-
       <List>
         {TrendingNews.map((text, index) => (
           <ListItem style={{ height: 40, borderRadius: 3 }} key={text}>
@@ -128,4 +108,3 @@ export default function Trending({ TrendingNews }) {
     </div>
   );
 }
-// completed
