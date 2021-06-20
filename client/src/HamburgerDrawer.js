@@ -1,27 +1,12 @@
 import React from "react";
-
 import clsx from "clsx";
-
 import { makeStyles } from "@material-ui/core/styles";
-
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-
 import Button from "@material-ui/core/Button";
-
 import List from "@material-ui/core/List";
-
 import Divider from "@material-ui/core/Divider";
-
 import ListItem from "@material-ui/core/ListItem";
-
-// import ListItemIcon from "@material-ui/core/ListItemIcon";
-
 import ListItemText from "@material-ui/core/ListItemText";
-
-// import InboxIcon from "@material-ui/icons/MoveToInbox";
-
-// import MailIcon from "@material-ui/icons/Mail";
-
 import MenuIcon from "@material-ui/icons/Menu"; // added
 
 import {
@@ -30,34 +15,32 @@ import {
   useMediaQuery,
 } from "@material-ui/core"; // added
 
+//To set width and padding of list
 const useStyles = makeStyles({
   list: {
-    width: 200, // changed
-    paddingLeft: 10, // changed
-    paddingRight: 5, //changed
+    width: 200,
+    paddingLeft: 10,
+    paddingRight: 5,
   },
-
   fullList: {
     width: "auto",
   },
 });
-
+// component created
 export default function SwipeableTemporaryDrawer({
   setCatAndCity,
   allCategory,
   allNewsCity,
   catAndCity,
 }) {
-  console.log(allCategory);
   const classes = useStyles();
   const [state, setState] = React.useState({
     left: false,
   });
 
-  //---------------------------------------------------
+  //-------------------Code to add dark theme--------------------------------
 
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
   const theme = React.useMemo(
     () =>
       createMuiTheme({
@@ -157,4 +140,3 @@ export default function SwipeableTemporaryDrawer({
     </div>
   );
 }
-// completed
