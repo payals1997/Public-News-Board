@@ -43,11 +43,15 @@ const Login = () => {
         }
     }
 
-    if ((loggedIn === true) && role === 'Admin') {
+    if ((loggedIn === true) && role === 'admin') {
         return <Redirect to="/admin" />
     }
-    if (loggedIn === true && role === 'Reporter') {
+    if (loggedIn === true && role === 'reporter') {
         return <Redirect to="/reporter" />
+    }
+
+    if (loggedIn === true && role === 'reader') {
+        return <Redirect to="/reader" />
     }
     return (
         <Grid>

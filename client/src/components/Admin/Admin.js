@@ -22,7 +22,7 @@ const Admin = () => {
     }
     return (
         <div>
-            <h1>User Authenticated</h1>
+            <h1>Admin Dashboard</h1>
             <button onClick={logout}>Logout</button>
         </div>
     )

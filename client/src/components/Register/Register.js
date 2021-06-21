@@ -93,12 +93,12 @@ const Register = () => {
                                     style={{ display: "initial" }}
                                 >
                                     <FormControlLabel
-                                        value="Reporter"
+                                        value="reporter"
                                         control={<Radio />}
                                         label="Reporter"
                                     />
                                     <FormControlLabel
-                                        value="Reader"
+                                        value="reader"
                                         control={<Radio />}
                                         label="Reader"
                                     />
@@ -110,8 +110,8 @@ const Register = () => {
                                 label="I accept the terms and conditions."
                             />
                             <FormHelperText><ErrorMessage name="termsAndConditions" component = "errorMsg"/></FormHelperText>
-                            <Button type='submit' variant='contained' disabled={props.isSubmitting}
-                                color='primary'>{props.isSubmitting ? "Loading" : "Sign up"}</Button>
+                            <Button type='submit' variant='contained' 
+                                color='primary'>SIGNUP</Button>
                         </Form>
                     )}
                 </Formik>

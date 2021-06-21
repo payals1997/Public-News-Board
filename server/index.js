@@ -10,10 +10,7 @@ app.use(cors());
 const userRouter = require("./routes/User");
 app.use("/", userRouter);
 
-const createNews = require("./routes/CreateNews");
-app.use("/", createNews);
-
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
     app.listen(8080, () => {
         console.log("server is running on port 8080");
     });

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router';
 import { useHistory } from 'react-router';
-export default function Reporter() {
+
+export default function Reader() {
     let history = useHistory();
     let [loggedIn, setLoggedIn] = useState(false);
     const token = localStorage.getItem("token");
@@ -19,8 +20,8 @@ export default function Reporter() {
     }
     return (
         <div>
-           <h1>Reporter Dashboard</h1> 
-           <button onClick={logout}>Logout</button>
-        </div>
+        <h1>Reader Dashboard</h1>
+        <button onClick={logout}>Logout</button>
+    </div>
     )
 }

@@ -7,12 +7,7 @@ const { Register } = require('../models');
 const { response } = require("express");
 const { verifyToken } = require("../Middleware/AuthMiddleware");
 
-router.get("/allUser", verifyToken, async (req, res) => {
-    const allReporter = await Register.findAll().then(reporter => {
-        res.json(reporter);
-       
-    });
-});
+
 
 router.post("/signup", async (req, res) => {
 
@@ -28,6 +23,7 @@ router.post("/signup", async (req, res) => {
             role: role
         });
         res.json("SUCCESS");
+        console.log(data)
     });
 })
 
