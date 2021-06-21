@@ -12,24 +12,30 @@ const Login = () => {
 
 
     const paperStyle = { padding: 20, height: '70vh', width: 280, margin: "20px auto" }
-    const avatarStyle = { backgroundColor: '#1bbd7e' }
+    const avatarStyle = { backgroundColor: '#3f51b5' }
     const btnstyle = { margin: '8px 0' };
     let history = useHistory();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("");
     let [loggedIn, setLoggedIn] = useState(false);
     const token = localStorage.getItem("token");
     if (token) loggedIn = true;
 
     function login(e) {
-        e.preventDefault();
         const data = { email: email, password: password };
         try {
-            const token = axios.post("http://localhost:8080/auth/login", data).then((response) => {
-
-                localStorage.setItem("token", token);
-
+            const token = axios.post("http://localhost:8080/signin", data).then((response) => {
+               if(response.data.error)
+               {
+                alert(response.data.error);
+               } else{
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("role", response.data.role);
+                setRole(response.data.role);
                 setLoggedIn(true);
+               }
+              
             })
         } catch (err) {
 
@@ -37,8 +43,11 @@ const Login = () => {
         }
     }
 
-    if (loggedIn === true) {
+    if ((loggedIn === true) && role === 'Admin') {
         return <Redirect to="/admin" />
+    }
+    if (loggedIn === true && role === 'Reporter') {
+        return <Redirect to="/reporter" />
     }
     return (
         <Grid>
@@ -56,12 +65,13 @@ const Login = () => {
                             color="primary"
                         />
                     }
+
                     label="Remember me"
                 />
                 <Button type='submit' onClick={login} color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
 
                 <Typography > Do you have an account ?
-                    <Link href="#" onClick={() => { history.push("/register"); }} >
+                    <Link href="#" onClick={() => { history.push("/signup"); }} >
                         Sign Up
                     </Link>
                 </Typography>

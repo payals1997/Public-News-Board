@@ -22,7 +22,7 @@ import axios from 'axios'
 const Register = () => {
     const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
     const headerStyle = { margin: 0 };
-    const avatarStyle = { backgroundColor: "#1bbd7e" };
+    const avatarStyle = { backgroundColor: "#3f51b5" };
     const marginTop = { marginTop: 5 };
     const initialValues = {
         name: '',
@@ -45,14 +45,8 @@ const Register = () => {
         termsAndConditions: Yup.string().oneOf(["true"], "Accept terms & conditions")
     })
     const onSubmit = (data) => {
-        // console.log(values)
-        // console.log(props)
-        // setTimeout(() => {
-
-        //     props.resetForm()
-        //     props.setSubmitting(false)
-        // }, 2000)
-        axios.post("http://localhost:8080/auth",data).then(() =>{
+      
+        axios.post("http://localhost:8080/signup",data).then(() =>{
             console.log(data);
         })
     }
@@ -71,10 +65,10 @@ const Register = () => {
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {(props) => (
                         <Form>
-                            <Field as={TextField} fullWidth name="name" label="Name" placeholder="Enter your name" helperText={<ErrorMessage name="name" component = "errorMsg" />} />
-                            <Field as={TextField} fullWidth name="email" label="Email" placeholder="Enter your email" helperText={<ErrorMessage name="email" component = "errorMsg" />} />
-                            <Field as={TextField} fullWidth name="city" label="City" placeholder="Enter your city" helperText={<ErrorMessage name="city" component = "errorMsg"/>} />
-                            <Field as={TextField} fullWidth name="phone" label="Phone" placeholder="Enter your Phone" helperText={<ErrorMessage name="phoneNumber" component = "errorMsg"/>} />
+                            <Field as={TextField} fullWidth name="name" label="Name" placeholder="Enter your name" helperText={<ErrorMessage name="name" component = "span" />} />
+                            <Field as={TextField} fullWidth name="email" label="Email" placeholder="Enter your email" helperText={<ErrorMessage name="email" component = "span" />} />
+                            <Field as={TextField} fullWidth name="city" label="City" placeholder="Enter your city" helperText={<ErrorMessage name="city" component = "span"/>} />
+                            <Field as={TextField} fullWidth name="phone" label="Phone" placeholder="Enter your Phone" helperText={<ErrorMessage name="phoneNumber" component = "span"/>} />
                             <Field as={TextField}
                                 fullWidth
                                 name="password"
@@ -99,12 +93,12 @@ const Register = () => {
                                     style={{ display: "initial" }}
                                 >
                                     <FormControlLabel
-                                        value="reporter"
+                                        value="Reporter"
                                         control={<Radio />}
                                         label="Reporter"
                                     />
                                     <FormControlLabel
-                                        value="reader"
+                                        value="Reader"
                                         control={<Radio />}
                                         label="Reader"
                                     />

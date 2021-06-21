@@ -7,8 +7,11 @@ const db = require('./models')
 app.use(express.json())
 app.use(cors());
 //Router
-const regRouter = require("./routes/Register");
-app.use("/auth", regRouter);
+const userRouter = require("./routes/User");
+app.use("/", userRouter);
+
+const createNews = require("./routes/CreateNews");
+app.use("/", createNews);
 
 db.sequelize.sync({ force: false }).then(() => {
     app.listen(8080, () => {

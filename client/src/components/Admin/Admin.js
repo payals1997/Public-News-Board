@@ -11,7 +11,7 @@ const Admin = () => {
     if (token) loggedIn = true;
 
     if (loggedIn === false) {
-        return <Redirect to="/login" />
+        return <Redirect to="/signin" />
     }
 
     function logout() {
