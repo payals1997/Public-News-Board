@@ -1,4 +1,3 @@
-import { Component } from "react";
 import './Navbar.styles.scss'
 
 function Navbar() {
