@@ -17,11 +17,25 @@ const rowdata = await NewsBlogs.findByPk(id);
 resp.json(rowdata);
 });
 
+
+
+router.post("/byId/:id", async (req, resp)=>{
+  const id =  req.params.id;
+   await NewsBlogs.increment('views', { by: 1, where: { id: id }});
+
+  });
+
+
+
+// inserting News Data in NewsBlogs Table
+
 router.post("/", async (req, resp) => {
   const row = req.body;
   await NewsBlogs.create(row);
   resp.json(row);
 });
+
+
 
 // Finding data on the basis of category
 router.get("/category/:category", async (req, resp) => {

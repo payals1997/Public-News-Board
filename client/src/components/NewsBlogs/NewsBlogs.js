@@ -26,6 +26,7 @@ const NewsBlogs = ({data})=>
                                         <b>Reported by {blog.Reporter_name}</b></span>            
                                 </div>
                                     <spam className='readMore' onClick={()=>{history.push('/readmore/'+blog.id)}}>read more</spam>
+                                    <span className='readMore' > {blog.views}viws</span>
                             </div>
                         </div>
                     )

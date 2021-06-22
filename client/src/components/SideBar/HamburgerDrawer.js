@@ -77,6 +77,7 @@ export default function SwipeableTemporaryDrawer({
   //----------------------------------------------------
 
   const toggleDrawer = (anchor, open) => (event) => {
+    open === true ? setCatAndCity({category: 'all', city: 'all'}): console.log('');
     if (
       event &&
       event.type === "keydown" &&
@@ -94,8 +95,6 @@ export default function SwipeableTemporaryDrawer({
         [classes.fullList]: anchor === "top" || anchor === "bottom",
       })}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
         <ListItem>Categories</ListItem>
