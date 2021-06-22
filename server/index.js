@@ -22,10 +22,8 @@ const db = require('./models');
 //Routers
 
 const newsBlog_router = require('./routes/newsBlog-routes')
-const imageRouter = require('./routes/uploads')
 
 app.use("/newsBlogs",newsBlog_router)
-app.use("/image", imageRouter)
 app.use('/', express.static(path.join(__dirname, '/')));
 
 db.sequelize.sync({force:false}).then(()=>{
