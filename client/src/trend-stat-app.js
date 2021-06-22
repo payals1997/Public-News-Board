@@ -5,29 +5,8 @@ import Trending from "./trending";
 
 function TrendStatApp() {
   const [TrendingNews, setTrendingNews] = useState([]);
-  /* const [Newsstatistic, setNewsStatistic] = useState({
-    labels: [],
-    datasets: [
-      {
-        label: "any name",
-        data: [],
-      },
-    ],
-  });*/
-  const [NewsViews, setNewsViews] = useState([]);
 
-  /* const state = {
-    labels: ["jan", "feb", "mar", "apr", "may"],
-    datasets: [
-      {
-        label: "rainfall",
-        backgroundColor: "",
-        borderColor: "",
-        borderWidth: "",
-        data: [65, 45, 123, 42, 43],
-      },
-    ],
-  }; */
+  const [NewsViews, setNewsViews] = useState([]);
   console.log(process.env);
 
   // Here we will write code to call backend api using axios
@@ -63,7 +42,9 @@ function TrendStatApp() {
   console.log(TrendingNews);
   return (
     <div>
-      <Trending TrendingNews={TrendingNews} />
+      <div style={{ textAlign: "right" }}>
+        <Trending TrendingNews={TrendingNews} />
+      </div>
       <Statistics NewsViews={NewsViews} TrendingNews={TrendingNews} />
     </div>
   );

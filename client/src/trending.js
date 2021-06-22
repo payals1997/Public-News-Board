@@ -79,11 +79,12 @@ export default function Trending({ TrendingNews }) {
       <Divider />
       <List>
         {TrendingNews.map((text, index) => (
-          <ListItem style={{ height: 40, borderRadius: 3 }} key={text}>
+          <ListItem style={{ height: 50, borderRadius: 3 }} key={text}>
             <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
+      <Divider />
     </div>
   );
 

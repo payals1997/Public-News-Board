@@ -1,75 +1,78 @@
 //npm i react-chartjs-2 chart.js
+//plugin to show data on top of each bar
+//npm install chartjs-plugin-datalabels --save
 import React from "react";
+
 import { Bar } from "react-chartjs-2";
+
+//import ChartDataLabels from "chartjs-plugin-datalabels";
 
 function Statistics({ TrendingNews, NewsViews }) {
   const state = {
-    labels: [TrendingNews],
+    labels: TrendingNews,
     datasets: [
       {
-        label: "News Title",
-        backgroundColor: "",
-        borderColor: "",
-        borderWidth: "",
-        data: [NewsViews],
+        label: "Views",
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+          //"rgba(196, 196, 196)",
+        ],
+        borderColor: [
+          "rgba(255,99,132,1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          // "rgba(196, 196, 196,1)",
+          //"rgba(255, 159, 64, 1)",
+        ],
+        borderWidth: "1",
+        //this will take array
+        // since our NewsViews state is already array so we directly given it.
+        data: NewsViews,
       },
     ],
   };
-
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    /*scales: {
+      yAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            labelString: "probability",
+          },
+        },
+      ],
+    },*/
     plugins: {
       legend: {
         display: true,
-        position: "bottom",
+        position: "left",
       },
+      /*  datalabels: {
+        display: true,
+        color: "white",
+      },*/
 
       title: {
-        text: "Top 5 viwed News",
+        text: "Top 5 Viwed News",
         display: true,
-        fontSize: 20,
+        fontSize: 40,
       },
     },
   };
 
   return (
-    <div>
+    <div style={{ height: "400px", width: "850px" }}>
       <Bar data={state} options={options}></Bar>
     </div>
   );
 }
 
 export default Statistics;
-
-/*return (
-    <div>
-      <h1>hello </h1>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          width={500}
-          height={300}
-          data={statisticsData}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-          barSize={20}
-        >
-          <XAxis
-            dataKey="title"
-            scale="point"
-            padding={{ left: 10, right: 10 }}
-          />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="value" fill="#8884d8" background={{ fill: "#eee" }} />
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
-  );
-}
-
-export default Statistics;*/
