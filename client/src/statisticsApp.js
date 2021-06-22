@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Statistics from "./statistics";
 import "./statistics.css";
 
-function TrendStatApp() {
+function StatisticsApp() {
   const [TrendingNews, setTrendingNews] = useState([]);
 
   const [NewsViews, setNewsViews] = useState([]);
@@ -49,4 +49,4 @@ function TrendStatApp() {
   );
 }
 
-export default TrendStatApp;
+export default StatisticsApp;

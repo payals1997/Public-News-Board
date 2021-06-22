@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import TrendStatApp from "./trend-stat-app";
+
+import StatisticsApp from "./statisticsApp";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <TrendStatApp />
+    <StatisticsApp />
   </React.StrictMode>,
   document.getElementById("root")
 );
