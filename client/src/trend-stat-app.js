@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Statistics from "./statistics";
-import Trending from "./trending";
+import "./statistics.css";
 
 function TrendStatApp() {
   const [TrendingNews, setTrendingNews] = useState([]);
@@ -41,11 +41,10 @@ function TrendStatApp() {
   console.log(NewsViews);
   console.log(TrendingNews);
   return (
-    <div>
-      <div style={{ textAlign: "right" }}>
-        <Trending TrendingNews={TrendingNews} />
+    <div className="parentStatistics">
+      <div className="childStatistics">
+        <Statistics NewsViews={NewsViews} TrendingNews={TrendingNews} />
       </div>
-      <Statistics NewsViews={NewsViews} TrendingNews={TrendingNews} />
     </div>
   );
 }
