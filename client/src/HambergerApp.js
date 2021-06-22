@@ -5,8 +5,8 @@ import HamburgerDrawer from "./HamburgerDrawer";
 
 function HambergerApp() {
   const [catAndCity, setCatAndCity] = useState({
-    category: "",
-    city: "",
+    category: "all",
+    city: "all",
   });
   const [allCategory, setAllCategory] = useState([]);
   const [allNewsCity, setAllNewsCategory] = useState([]);

@@ -11,7 +11,9 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-//import HamburgerApp from "./HambergerApp.css";
+import { useState } from "react";
+import { useEffect } from "react";
+import "./HambergerApp.css";
 
 const drawerWidth = 240;
 
@@ -78,7 +80,19 @@ export default function SwipeableTemporaryDrawer({
   allNewsCity,
   catAndCity,
 }) {
+  const [isSelected, setIsSelected] = useState({
+    selected: false,
+    color: "black",
+  });
+  /* function handleSelect() {
+    setIsSelected(true);
+  }
+  useEffect(() => {
+    console.log(isSelected);
+  }, []);*/
+
   console.log(catAndCity);
+  console.log(isSelected);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -90,7 +104,7 @@ export default function SwipeableTemporaryDrawer({
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  let myname = isSelected ? "mytypo1" : "mytypo";
   return (
     <div className={classes.root}>
       <Toolbar>
@@ -155,10 +169,12 @@ export default function SwipeableTemporaryDrawer({
               button
               onClick={() => {
                 setCatAndCity({ ...catAndCity, category: text });
+                setIsSelected(true);
               }}
               key={text}
             >
               <ListItemText
+                //      setIsSelected({selected:true, color:"red"});
                 primary={
                   <Typography style={{ color: "black" }}> {text} </Typography>
                 }
