@@ -1,4 +1,4 @@
-const { NewsBlogs } = require("../models");
+const { NewsBlogs } = require("../../../addNews/server/models");
 const shortid = require("shortid");
 
 exports.createNews = async (req, resp) => {
