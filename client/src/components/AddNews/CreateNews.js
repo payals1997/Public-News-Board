@@ -29,7 +29,7 @@ function CreateNews() {
   const [category, setCategory] = useState("");
   const [newsCity, setNewsCity] = useState("");
   const [Reporter_name, setReporter_name] = useState("");
-  
+
   const paperStyle = { padding: "30px 20px", width: 700, margin: "20px auto" };
   const headerStyle = { margin: 0 };
   const gridStyle = { margin: "15px" };

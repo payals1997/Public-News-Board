@@ -9,52 +9,53 @@ module.exports = (sequelize, DataTypes)=>{
         },
         title: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
+            defaultValue : 'Null'
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
+            defaultValue : 'Null'
         },
         content: {
-            type: DataTypes.TEXT,
-            allowNull: false,
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue : 'Null'
         },
         Reporter_name :{
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
+            defaultValue : 'Null'
         },
         video :{
             type: DataTypes.STRING,
             allowNull: true,
+            defaultValue : 'Null'
         },
         category :{
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         views :{
             type: DataTypes.INTEGER,
             allowNull: true,
-            defaultValue : 0,
+            defaultValue : 0
         },
         newsCity :{
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
+            defaultValue: 'Null'
         },
         isDeleted :{
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+            allowNull: true,
             defaultValue : false
-        },        
+        },
+        
     },
-    
     {
-        created_at: {
-            allowNull: false,
-        type: DataTypes.DATE,
-        defaultValue: sequelize.fn('NOW'),
-          },
-        // createdAt : true,
-        updatedAt : false
+        createdAt : true,
+        updatedAt: false
     }
     );
     return NewsBlogs;

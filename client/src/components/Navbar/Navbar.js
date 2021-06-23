@@ -10,7 +10,8 @@ function Navbar() {
           src="http://minkewhaleproject.org/wp-content/uploads/2017/11/channel-7-news-logo.jpg"
           alt="logo"
         />
-        <div className="nav-items"></div>
+        <div className="nav-items">
+        </div>
       </div>
     </>
   );

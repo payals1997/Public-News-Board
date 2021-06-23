@@ -1,13 +1,11 @@
-// import NewsBlogs from './components/NewsBlogs/NewsBlogs'
 import './App.css';
-import AddNews from './components/AddNews';
+import Routes from './components/Routes'
 
 function App() {
   return (
-    <div className="App">
-      <AddNews />
-      {/* <NewsBlogs></NewsBlogs> */}
-    </div>
+    <>
+      <Routes />
+    </>
   );
 }
 
