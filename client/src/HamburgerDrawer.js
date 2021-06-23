@@ -11,9 +11,6 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import { useState } from "react";
-import { useEffect } from "react";
-import "./HambergerApp.css";
 
 const drawerWidth = 240;
 
@@ -72,6 +69,9 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
+  active: {
+    background: "#D3D3D3",
+  },
 }));
 
 export default function SwipeableTemporaryDrawer({
@@ -80,19 +80,6 @@ export default function SwipeableTemporaryDrawer({
   allNewsCity,
   catAndCity,
 }) {
-  const [isSelected, setIsSelected] = useState({
-    selected: false,
-    color: "black",
-  });
-  /* function handleSelect() {
-    setIsSelected(true);
-  }
-  useEffect(() => {
-    console.log(isSelected);
-  }, []);*/
-
-  console.log(catAndCity);
-  console.log(isSelected);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -104,17 +91,11 @@ export default function SwipeableTemporaryDrawer({
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  let myname = isSelected ? "mytypo1" : "mytypo";
+
   return (
     <div className={classes.root}>
       <Toolbar>
-        <IconButton
-          color="inherit"
-          //    aria-label="open drawer"
-          onClick={handleDrawerOpen}
-          //edge="start"
-          // className={clsx(classes.menuButton, open && classes.hide)}
-        >
+        <IconButton color="inherit" onClick={handleDrawerOpen}>
           <MenuIcon />
         </IconButton>
       </Toolbar>
@@ -141,6 +122,11 @@ export default function SwipeableTemporaryDrawer({
           <ListItem
             button
             onClick={() => setCatAndCity({ city: "all", category: "all" })}
+            className={
+              catAndCity.city === "all" && catAndCity.category === "all"
+                ? classes.active
+                : null
+            }
           >
             <ListItemText
               primary={
@@ -165,16 +151,14 @@ export default function SwipeableTemporaryDrawer({
         <List>
           {allCategory.map((text, index) => (
             <ListItem
-              // style={{ backgroundColor: "grey" }}
               button
               onClick={() => {
                 setCatAndCity({ ...catAndCity, category: text });
-                setIsSelected(true);
               }}
               key={text}
+              className={catAndCity.category === text ? classes.active : null}
             >
               <ListItemText
-                //      setIsSelected({selected:true, color:"red"});
                 primary={
                   <Typography style={{ color: "black" }}> {text} </Typography>
                 }
@@ -200,6 +184,7 @@ export default function SwipeableTemporaryDrawer({
               button
               onClick={() => setCatAndCity({ ...catAndCity, city: text })}
               key={text}
+              className={catAndCity.city === text ? classes.active : null}
             >
               <ListItemText
                 primary={

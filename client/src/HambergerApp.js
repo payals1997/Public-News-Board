@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "./HambergerApp.css";
 import HamburgerDrawer from "./HamburgerDrawer";
 
 function HambergerApp() {
@@ -10,7 +9,6 @@ function HambergerApp() {
   });
   const [allCategory, setAllCategory] = useState([]);
   const [allNewsCity, setAllNewsCategory] = useState([]);
-  console.log(process.env);
 
   // Here is the code call backend api using axios
   const newsApi = async () => {
