@@ -3,7 +3,6 @@ const config = require("../SecretKey")
 const verifyToken = (req, res, next) => {
     const token = req.header('token');
 
-    console.log(token)
     if (!token) return res.json({ error: "token is missing" });
     try {
         const validToken = jwt.verify(token, config.SECERETKEY);

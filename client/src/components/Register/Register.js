@@ -46,9 +46,7 @@ const Register = () => {
     })
     const onSubmit = (data) => {
       
-        axios.post("http://localhost:8080/signup",data).then(() =>{
-            console.log(data);
-        })
+        axios.post("http://localhost:8080/signup",data)
     }
     return (
         <Grid>

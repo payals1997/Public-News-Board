@@ -11,7 +11,5 @@ const userRouter = require("./routes/User");
 app.use("/", userRouter);
 
 db.sequelize.sync({ force: true }).then(() => {
-    app.listen(8080, () => {
-        console.log("server is running on port 8080");
-    });
+    app.listen(3001)
 });

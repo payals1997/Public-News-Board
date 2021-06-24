@@ -22,7 +22,7 @@ const Login = () => {
     const token = localStorage.getItem("token");
     if (token) loggedIn = true;
 
-    function login(e) {
+    function login() {
         const data = { email: email, password: password };
         try {
             const token = axios.post("http://localhost:8080/signin", data).then((response) => {
@@ -38,7 +38,6 @@ const Login = () => {
               
             })
         } catch (err) {
-
             console.log(err);
         }
     }
