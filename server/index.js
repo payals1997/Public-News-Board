@@ -1,23 +1,20 @@
 const express = require("express");
+const cors = require("cors")
 const app = express();
-const cors = require("cors");
+const db = require('./models')
 
-app.use(express.json());
+// parse application/json
+
+app.use(express.json())
 app.use(cors());
 
-const db = require("./models");
-
-//Routers
-
-
-
+//Router
 
 const newsBlog_router = require("./routes/newsBlog-routes");
 app.use("/newsBlogs", newsBlog_router);
 
-// const newsBlog_router1 = require("./routes/newsBlog-routes");
-// app.use("/trendingNews", newsBlog_router1);
-
+const userRouter = require("./routes/User");
+app.use("/", userRouter);
 
 db.sequelize.sync({ force: false, alter: true }).then(() => {
   app.listen("3001", () => {
