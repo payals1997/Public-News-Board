@@ -1,4 +1,5 @@
 import { useParams, useHistory } from "react-router";
+import Navbar from "../Navbar/Navbar";
 import "./style.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -19,6 +20,8 @@ const ReadMore = ()=>{
     },[])
 
     return(
+        <>
+        <Navbar />
         <div className="newsCard">
         <img className='readmoreImage' src={ReadmoreData.image} className='newsImage' alt="readmoreimg" />                
         <div className='newsText'>
@@ -34,6 +37,7 @@ const ReadMore = ()=>{
                     <spam className='readMore'>{ReadmoreData.views} views</spam>
             </div>
         </div>
+        </>
     );
 }
 export default ReadMore;

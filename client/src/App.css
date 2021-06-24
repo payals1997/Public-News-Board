@@ -1,12 +1,16 @@
 .App {
  
-  display: flex;
-  flex-direction: row;
-  padding: 25px;
-  justify-content:space-evenly;
+ background-color: #d5d5e0;
   
+}
+.top10div{
+  overflow-y:auto;
+  height: 100vh;
+  width: 40%;
+
 }
 
 .blogDisplay{
-  width: 40%;
+  display: flex;
+  width: 100%;
 }

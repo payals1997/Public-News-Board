@@ -17,7 +17,7 @@ const rowdata = await NewsBlogs.findByPk(id);
 resp.json(rowdata);
 });
 
-
+//fetching views on the basis of id
 
 router.post("/byId/:id", async (req, resp)=>{
   const id =  req.params.id;
@@ -25,6 +25,16 @@ router.post("/byId/:id", async (req, resp)=>{
 
   });
 
+//fetching max viewd news
+
+  router.get("/top10", async (req, resp) => {
+    const TableData = await NewsBlogs.findAll({
+      order: [["views", "DESC"]],
+      limit: 10,
+    });
+    resp.json(TableData);
+  });
+  
 
 
 // inserting News Data in NewsBlogs Table

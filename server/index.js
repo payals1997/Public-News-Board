@@ -9,8 +9,16 @@ const db = require("./models");
 
 //Routers
 
+const userRouter = require("./routes/User");
+app.use("/", userRouter);
+
+
 const newsBlog_router = require("./routes/newsBlog-routes");
 app.use("/newsBlogs", newsBlog_router);
+
+// const newsBlog_router1 = require("./routes/newsBlog-routes");
+// app.use("/trendingNews", newsBlog_router1);
+
 
 db.sequelize.sync({ force: false, alter: true }).then(() => {
   app.listen("3001", () => {

@@ -1,7 +1,9 @@
-import './App.css';
+import '../../App.css';
 import { useState } from 'react';
-import HambergerApp from './components/SideBar/HambergerApp';
-import BlogTableData from './components/NewsBlogs/BlogsData';
+import Navbar from '../Navbar/Navbar';
+import BlogTableData from '../NewsBlogs/BlogsData';
+import Top10newsBlogs from '../Homepg/top10';
+import HambergerApp from '../SideBar/HambergerApp';
 
 
 const Dashboard = ()=>{
@@ -12,9 +14,11 @@ const Dashboard = ()=>{
     
     return(
         <div className="App">
+            <Navbar ></Navbar>
             <div>
-            <div className='sidebar'>
             <HambergerApp catAndCity={catAndCity} setCatAndCity={setCatAndCity}></HambergerApp>
+            <div>
+            
             </div>
             </div>
 
@@ -22,6 +26,9 @@ const Dashboard = ()=>{
 
             <div className='blogDisplay'>
             <BlogTableData catAndCity={catAndCity} />
+            <div className="top10div">
+                <Top10newsBlogs className= {"Top10mini"} />
+                </div>
             </div>
         </div>
     )
