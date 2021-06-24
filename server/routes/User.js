@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("../SecretKey")
 const { Register } = require('../models');
-const { response } = require("express");
+// const { response } = require("express");
 const { verifyToken } = require("../Middleware/AuthMiddleware");
 
 

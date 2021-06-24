@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from "../Homepg/Home"
 import Register from "../Register";
 import Login from "../Login/Login";
+import Logout from "../Logout/Logout";
 
 const Routing = ()=>{
     return(
@@ -16,6 +17,7 @@ const Routing = ()=>{
 <Route path="/signin" exact component={Login}></Route>
   <Route path="/dashboard" exact component={Dashboard}></Route>
   <Route path="/readmore/:id" exact component={ReadMore}></Route>
+  <Route path="/logout" exact component={Logout}></Route>
 </Switch>
 </Router>
 

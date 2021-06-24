@@ -22,6 +22,7 @@ const ReadMore = ()=>{
     return(
         <>
         <Navbar />
+        <div className="readmore-container">
         <div className="newsCard">
         <img className='readmoreImage' src={ReadmoreData.image} className='newsImage' alt="readmoreimg" />                
         <div className='newsText'>
@@ -33,9 +34,10 @@ const ReadMore = ()=>{
                     <span className='author'>
                         <b>Reported by {ReadmoreData.Reporter_name}</b></span>            
                 </div>
-                    <spam className='readMore' onClick={()=>{history.push('/')}}>read less</spam>
+                    <spam className='readMore' onClick={()=>{history.push('/dashboard')}}>read less</spam>
                     <spam className='readMore'>{ReadmoreData.views} views</spam>
             </div>
+        </div>
         </div>
         </>
     );

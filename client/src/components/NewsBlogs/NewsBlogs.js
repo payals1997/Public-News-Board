@@ -6,7 +6,7 @@ const NewsBlogs = ({data})=>
     let history = useHistory()
     const blogData = data;
     return(
-        <div className="main">
+        <div className="main" title="main">
         
         <div className="show">
            
@@ -14,14 +14,14 @@ const NewsBlogs = ({data})=>
                 blogData.map((blog)=>{
                     let id= blog.id;
                     return(
-                    <div className="newsCard">
+                    <div className="newsCard" title="newsCard">
                         <img className='newsImage' src={blog.image} className='newsImage' alt="newsimg" />                
                         <div className='newsText'>
                             <div >
                                 <span className='title'>{blog.title}</span>
                                 </div>
                                 <div className='newsContent'>
-                                    <p>{blog.content.slice(0, 258)}</p>
+                                    <p>{blog.content.slice(0, 508)}</p>
                                     <span className='author'>
                                         <b>Reported by {blog.Reporter_name}</b></span>            
                                 </div>

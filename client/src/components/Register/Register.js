@@ -18,8 +18,11 @@ import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { FormHelperText } from '@material-ui/core'
 import * as Yup from 'yup';
 import axios from 'axios'
+import { Redirect } from "react-router";
+import { useHistory } from "react-router";
 
 const Register = () => {
+    let history = useHistory();
     const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
     const headerStyle = { margin: 0 };
     const avatarStyle = { backgroundColor: "#3f51b5" };
@@ -45,9 +48,20 @@ const Register = () => {
         termsAndConditions: Yup.string().oneOf(["true"], "Accept terms & conditions")
     })
     const onSubmit = (data) => {
-      
-        axios.post("http://localhost:8080/signup",data).then(() =>{
+
+        axios.post("http://localhost:3001/signup", data).then((response) => {
             console.log(data);
+
+            if (data.role === 'reader') {
+                alert("You Registered Successfully !!!!");
+                history.push("/signin");
+
+            }
+            if (data.role === 'reporter') {
+                alert("Your Account Will Be Activated Within 24 Hours !!!!");
+                history.push("/signin");
+            }
+
         })
     }
     return (
@@ -65,23 +79,23 @@ const Register = () => {
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {(props) => (
                         <Form>
-                            <Field as={TextField} fullWidth name="name" label="Name" placeholder="Enter your name" helperText={<ErrorMessage name="name" component = "span" />} />
-                            <Field as={TextField} fullWidth name="email" label="Email" placeholder="Enter your email" helperText={<ErrorMessage name="email" component = "span" />} />
-                            <Field as={TextField} fullWidth name="city" label="City" placeholder="Enter your city" helperText={<ErrorMessage name="city" component = "span"/>} />
-                            <Field as={TextField} fullWidth name="phone" label="Phone" placeholder="Enter your Phone" helperText={<ErrorMessage name="phoneNumber" component = "span"/>} />
+                            <Field as={TextField} fullWidth name="name" label="Name" placeholder="Enter your name" helperText={<ErrorMessage name="name" component="span" />} />
+                            <Field as={TextField} fullWidth name="email" label="Email" placeholder="Enter your email" helperText={<ErrorMessage name="email" component="span" />} />
+                            <Field as={TextField} fullWidth name="city" label="City" placeholder="Enter your city" helperText={<ErrorMessage name="city" component="span" />} />
+                            <Field as={TextField} fullWidth name="phone" label="Phone" placeholder="Enter your Phone" helperText={<ErrorMessage name="phoneNumber" component="span" />} />
                             <Field as={TextField}
                                 fullWidth
                                 name="password"
                                 label="Password"
                                 placeholder="Enter your password"
-                                helperText={<ErrorMessage name="password" component = "errorMsg" />}
+                                helperText={<ErrorMessage name="password" component="errorMsg" />}
                             />
                             <Field as={TextField}
                                 fullWidth
                                 name="confirmPassword"
                                 label="Confirm Password"
                                 placeholder="Confirm your password"
-                                helperText={<ErrorMessage name="confirmPassword" component = "errorMsg" />}
+                                helperText={<ErrorMessage name="confirmPassword" component="errorMsg" />}
                             />
 
                             <FormControl component="fieldset" style={marginTop}>
@@ -89,7 +103,7 @@ const Register = () => {
                                 <Field as={RadioGroup}
                                     aria-label="role"
                                     name="role"
-                                  
+
                                     style={{ display: "initial" }}
                                 >
                                     <FormControlLabel
@@ -104,13 +118,13 @@ const Register = () => {
                                     />
                                 </ Field>
                             </FormControl>
-                            <FormHelperText><ErrorMessage name="role" component = "errorMsg"/></FormHelperText>
+                            <FormHelperText><ErrorMessage name="role" component="errorMsg" /></FormHelperText>
                             <FormControlLabel
                                 control={<Field as={Checkbox} name="termsAndConditions" />}
                                 label="I accept the terms and conditions."
                             />
-                            <FormHelperText><ErrorMessage name="termsAndConditions" component = "errorMsg"/></FormHelperText>
-                            <Button type='submit' variant='contained' 
+                            <FormHelperText><ErrorMessage name="termsAndConditions" component="errorMsg" /></FormHelperText>
+                            <Button type='submit' variant='contained'
                                 color='primary'>SIGNUP</Button>
                         </Form>
                     )}

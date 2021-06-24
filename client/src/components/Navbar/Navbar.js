@@ -1,20 +1,28 @@
 import './Navbar.styles.scss'
 import {Link} from 'react-router-dom'
+import React, { useState } from 'react'
 function Navbar() {
+  let [loggedIn, setLoggedIn] = useState(false);
+    const token = localStorage.getItem("token");
+
+    if (token) loggedIn = true;
   return (
     <>
       <div className="nav">
         <div className="icon">
         </div>
-        <img
+        <img 
           id="navbar-logo"
-          src="http://minkewhaleproject.org/wp-content/uploads/2017/11/channel-7-news-logo.jpg"
+          src="https://image.flaticon.com/icons/png/512/21/21601.png"
           alt="logo"
         />
 
         <div className="nav-items">
-          <Link to ="/signup">Sign Up</Link>
-          <Link to ="/signin">Sign In</Link>          
+          {loggedIn ?
+           (<Link to ="/logout">SIGNOUT</Link>):
+           (<Link to ="/signin">SIGNIN</Link>)
+           }
+                   
         </div>
       </div>
     </>

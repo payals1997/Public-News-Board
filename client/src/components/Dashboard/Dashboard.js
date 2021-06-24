@@ -13,17 +13,14 @@ const Dashboard = ()=>{
       });
     
     return(
-        <div className="App">
+        <div className="App" title="data">
             <Navbar ></Navbar>
             <div>
             <HambergerApp catAndCity={catAndCity} setCatAndCity={setCatAndCity}></HambergerApp>
             <div>
             
             </div>
-            </div>
-
-            
-
+            </div>            
             <div className='blogDisplay'>
             <BlogTableData catAndCity={catAndCity} />
             <div className="top10div">

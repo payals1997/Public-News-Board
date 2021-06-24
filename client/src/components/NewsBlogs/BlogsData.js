@@ -19,7 +19,7 @@ console.log(filterData);
 
 
   return(
-    <div>
+    <div >
       
       <NewsBlogs data={filterData}/>
     </div>

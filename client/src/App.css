@@ -1,12 +1,15 @@
 .App {
  
  background-color: #d5d5e0;
-  
+  border: solid;
+}
+.logout{
+  width: 100%;
 }
 .top10div{
   overflow-y:auto;
   height: 100vh;
-  width: 40%;
+  width: 50%;
 
 }
 

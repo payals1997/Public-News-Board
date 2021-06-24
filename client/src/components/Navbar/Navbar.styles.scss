@@ -1,13 +1,18 @@
 .nav {
     height: 71px;
+    width: 100%;
     background-color: #8a8ab5;
     box-shadow: 0px 1px 8px #888888;
     display: flex;
     align-items: center;
     justify-content: space-between;
     #navbar-logo {
-        height: 90%;
+        height: 120%;
+        
+    }
+    .logout{
         cursor: pointer;
+        border-radius: 3px;
     }
     .nav-items {
         display: flex;
@@ -17,10 +22,12 @@
         a {
             margin: 0 10px;
             text-decoration: none;
-            color: rgb(59, 57, 57);
+            color:black;
+            font-weight: bold;
+            font-size: large;
             &:hover,
             &:focus {
-                color: #21907a;
+                color: blue;
             }
         }
     }

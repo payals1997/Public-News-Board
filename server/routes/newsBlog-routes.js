@@ -1,11 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const { NewsBlogs } = require("../models");
+const {verifyToken} = require("../Middleware/AuthMiddleware");
 
 //fetching all data from NewsBlogs Table
 
-router.get("/", async (req, resp) => {
-  const TableData = await NewsBlogs.findAll();
+router.get("/", verifyToken, async (req, resp) => {
+  const TableData = await NewsBlogs.findAll({
+    order: [["id", "DESC"]]
+  }
+  );
   resp.json(TableData);
 });
 

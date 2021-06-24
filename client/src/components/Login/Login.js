@@ -10,7 +10,6 @@ import Register from '../Register';
 
 const Login = () => {
 
-
     const paperStyle = { padding: 20, height: '70vh', width: 280, margin: "20px auto" }
     const avatarStyle = { backgroundColor: '#3f51b5' }
     const btnstyle = { margin: '8px 0' };
@@ -25,7 +24,7 @@ const Login = () => {
     function login(e) {
         const data = { email: email, password: password };
         try {
-            const token = axios.post("http://localhost:8080/signin", data).then((response) => {
+            const token = axios.post("http://localhost:3001/signin", data).then((response) => {
                if(response.data.error)
                {
                 alert(response.data.error);
@@ -34,6 +33,8 @@ const Login = () => {
                 localStorage.setItem("role", response.data.role);
                 setRole(response.data.role);
                 setLoggedIn(true);
+                alert("You Logged In Successfully !!!!");
+               
                }
               
             })
@@ -43,16 +44,9 @@ const Login = () => {
         }
     }
 
-    // if ((loggedIn === true) && role === 'admin') {
-    //     return <Redirect to="/admin" />
-    // }
-    // if (loggedIn === true && role === 'reporter') {
-    //     return <Redirect to="/reporter" />
-    // }
-
-    // if (loggedIn === true && role === 'reader') {
-    //     return <Redirect to="/reader" />
-    // }
+    if (loggedIn === true && role === 'reader') {
+        return <Redirect to="/dashboard" />
+    }
     return (
         <Grid>
             <Paper elevation={10} style={paperStyle}>
@@ -86,3 +80,4 @@ const Login = () => {
 }
 
 export default Login
+
