@@ -22,6 +22,7 @@ const Login = () => {
     const token = localStorage.getItem("token");
     if (token) loggedIn = true;
 
+    //Login Fucntion
     function login() {
         const data = { email: email, password: password };
         try {
