@@ -43,7 +43,7 @@ const Login = () => {
         }
     }
 
-    if (loggedIn === true && role==='admin') {
+    if (loggedIn === true ) {
         return <Redirect to="/dashboard" />
     }
 

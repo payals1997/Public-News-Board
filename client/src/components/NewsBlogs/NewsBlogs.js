@@ -16,7 +16,7 @@ const NewsBlogs = ({data})=>
                     let id= blog.id;
                     return(
                     <div className="newsCard" title="newsCard">
-                        <img className='newsImage' src={blog.image} className='newsImage' alt="newsimg" />                
+                        <img className='newsImage' src={blog.image} alt="newsimg" />                
                         <div className='newsText'>
                             <div >
                                 <span className='title'>{blog.title}</span>

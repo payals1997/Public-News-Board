@@ -1,12 +1,24 @@
 import "./Navbar.styles.scss";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import AdminTernary from "./AdminTernary";
+import ReporterTernary from "./ReporterTernary"
+
 function Navbar() {
+
   const [loggedIn, setLoggedIn] = useState(false);
   const [stats, setStats] = useState(false);
 
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
+
+  const handleClick = () => {
+    setStats(true)
+  }
+  
+  const handleClickTwo = () => {
+    setStats(false)
+  }
 
   useEffect(() => {
     if (token) setLoggedIn(true); 
@@ -27,15 +39,11 @@ function Navbar() {
           {loggedIn ? (
             <>
               <Link to="/logout">SIGNOUT</Link>
-              {(stats === false && role === "admin") ? (
-                <Link to="/statistics" onClick={() => setStats(true)}>
-                  STATISTICS
-                </Link>
-              ) : (
-                <Link to="/dashboard" onClick={() => setStats(false)}>
-                  DASHBOARD
-                </Link>
-              )}
+              {role==="admin" ?
+              <AdminTernary stats={stats} handleClick={handleClick} handleClickTwo={handleClickTwo} role={role}/>
+              :
+              <ReporterTernary stats={stats} handleClick={handleClick} handleClickTwo={handleClickTwo} role={role}/>
+            }
             </>
           ) : (
             <Link to="/signin">SIGNIN</Link>

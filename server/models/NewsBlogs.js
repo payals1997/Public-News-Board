@@ -33,7 +33,9 @@ module.exports = (sequelize, DataTypes)=>{
         },
         views :{
             type: DataTypes.INTEGER,
-            allowNull: true,
+            allowNull: false,
+            defaultValue: 0
+
         },
         newsCity :{
             type: DataTypes.STRING,
@@ -41,7 +43,8 @@ module.exports = (sequelize, DataTypes)=>{
         },
         isDeleted :{
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+            allowNull: true,
+            defaultValue: false
         },
 
         

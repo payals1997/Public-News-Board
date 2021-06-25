@@ -19,12 +19,14 @@ const ReadMore = ()=>{
         })
     },[])
 
+    console.log(ReadmoreData.image)
     return(
         <>
         <Navbar />
         <div className="readmore-container">
         <div className="newsCard">
-        <img className='readmoreImage' src={ReadmoreData.image} className='newsImage' alt="readmoreimg" />                
+            
+        <img className='readmoreImage' className='newsImage' src={ReadmoreData.image}  alt="readmoreimg" />                
         <div className='newsText'>
             <div >
                 <span className='title'>{ReadmoreData.title}</span>

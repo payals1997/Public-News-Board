@@ -7,6 +7,7 @@ import Register from "../Register";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
 import Statistics from "../Statistics";
+import AddNews from "../AddNews" 
 import Navbar from "../Navbar";
 import { useState } from "react";
 
@@ -23,6 +24,8 @@ const Routing = () => {
         
           
           <Route path="/dashboard" exact component={Dashboard}></Route>
+          <Route path="/addNews" exact component={AddNews}></Route>
+
           <Route path="/statistics" exact component={Statistics}></Route>
         
 
