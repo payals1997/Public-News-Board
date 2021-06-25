@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-import StatisticsApp from "./statisticsApp";
+import StatisticsApp from "./components/statisticsApp";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(

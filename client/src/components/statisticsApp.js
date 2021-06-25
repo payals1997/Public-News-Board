@@ -41,10 +41,8 @@ function StatisticsApp() {
   console.log(NewsViews);
   console.log(TrendingNews);
   return (
-    <div className="parentStatistics">
-      <div className="childStatistics">
-        <Statistics NewsViews={NewsViews} TrendingNews={TrendingNews} />
-      </div>
+    <div>
+      <Statistics NewsViews={NewsViews} TrendingNews={TrendingNews} />
     </div>
   );
 }
