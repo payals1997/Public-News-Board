@@ -33,7 +33,7 @@ const Top10newsBlogs = ({className}) => {
                                         <b>Reported by {blog.Reporter_name}</b></span>
                                 </div>
 
-                                <span className='readMore' > {blog.views}viws</span>
+                                <span className='readMore' > {blog.views} views</span>
                             </div>
                         </div>
                     )
