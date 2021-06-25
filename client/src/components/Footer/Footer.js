@@ -2,8 +2,26 @@ import { Container, Grid, Box, Link } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
+// import { withStyles } from "@material-ui/core/styles";
+// import clsx from 'clsx'
+
+// const styles = {
+//   container: {
+//     // display: 'flex',
+//     // minHeight: '100vh',
+//     // flexDirection: 'column',
+//     marginTop:(5% + '60px'),
+//     bottom: 0,
+//     // justifyContent: 'flex-end'
+//     // alignItems: 'center'
+    
+//   }
+// }
+
 
 function Footer() {
+  // const {classes, className} = props
+
   return (
     <footer>
       <Box px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 5 }} bgcolor="#424242" color="">
@@ -59,4 +77,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default Footer
