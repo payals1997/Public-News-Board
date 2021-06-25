@@ -4,6 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import BlogTableData from '../NewsBlogs/BlogsData';
 import Top10newsBlogs from '../Homepg/top10';
 import HambergerApp from '../SideBar/HambergerApp';
+import Footer from '../Footer/Footer';
 
 
 const Dashboard = ()=>{
@@ -27,6 +28,8 @@ const Dashboard = ()=>{
                 <Top10newsBlogs className= {"Top10mini"} />
                 </div>
             </div>
+
+            <Footer />
         </div>
     )
 }

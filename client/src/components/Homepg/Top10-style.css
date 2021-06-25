@@ -11,7 +11,7 @@
 }
 
 .blogs{
-    border: solid;
+    
     width: auto;
     margin: auto;
 }
@@ -28,14 +28,19 @@
 
 .Loadmore{
     border-radius: 5px;
-    background-color: aqua;
-    padding: 10px;
+    background-color: #8a8ab5;
+    color: black;
+    padding: 5px;
+    align-self: center;
     cursor: pointer;
+    margin-top: 20px;
+    margin-left: 50%;
+    margin-bottom: 20px;
+}
+.LoadMorediv{
+    margin-top: 20px;
 }
 
-Loadmore-div{
-    margin: 15px;
-    align-self: center;
-}
+
 
 
