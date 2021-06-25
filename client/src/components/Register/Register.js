@@ -1,4 +1,5 @@
 import React from "react";
+import './Register.styles.css';
 import {
     Grid,
     Paper,
@@ -18,8 +19,11 @@ import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { FormHelperText } from '@material-ui/core'
 import * as Yup from 'yup';
 import axios from 'axios'
+import { Redirect } from "react-router";
+import { useHistory } from "react-router";
 
 const Register = () => {
+    let history = useHistory();
     const paperStyle = { padding: "30px 20px", width: 300, margin: "20px auto" };
     const headerStyle = { margin: 0 };
     const avatarStyle = { backgroundColor: "#3f51b5" };
@@ -46,8 +50,19 @@ const Register = () => {
     })
     const onSubmit = (data) => {
       
-        axios.post("http://localhost:8080/signup",data).then(() =>{
+       axios.post("http://localhost:3001/signup", data).then((response) => {
             console.log(data);
+
+            if (data.role === 'reader') {
+                alert("You Registered Successfully !!!!");
+                history.push("/signin");
+
+            }
+            if (data.role === 'reporter') {
+                alert("Your Account Will Be Activated Within 24 Hours !!!!");
+                history.push("/signin");
+            }
+
         })
     }
     return (
@@ -65,10 +80,10 @@ const Register = () => {
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {(props) => (
                         <Form>
-                            <Field as={TextField} fullWidth name="name" label="Name" placeholder="Enter your name" helperText={<ErrorMessage name="name" component = "span" />} />
-                            <Field as={TextField} fullWidth name="email" label="Email" placeholder="Enter your email" helperText={<ErrorMessage name="email" component = "span" />} />
-                            <Field as={TextField} fullWidth name="city" label="City" placeholder="Enter your city" helperText={<ErrorMessage name="city" component = "span"/>} />
-                            <Field as={TextField} fullWidth name="phone" label="Phone" placeholder="Enter your Phone" helperText={<ErrorMessage name="phoneNumber" component = "span"/>} />
+                            <Field as={TextField} fullWidth name="name" label="Name" placeholder="Enter your name" helperText={<ErrorMessage name="name" component = "errorMsg" />} />
+                            <Field as={TextField} fullWidth name="email" label="Email" placeholder="Enter your email" helperText={<ErrorMessage name="email" component = "errorMsg" />} />
+                            <Field as={TextField} fullWidth name="city" label="City" placeholder="Enter your city" helperText={<ErrorMessage name="city" component = "errorMsg"/>} />
+                            <Field as={TextField} fullWidth name="phone" label="Phone" placeholder="Enter your Phone" helperText={<ErrorMessage name="phoneNumber" component = "errorMsg"/>} />
                             <Field as={TextField}
                                 fullWidth
                                 name="password"
