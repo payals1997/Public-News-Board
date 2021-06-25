@@ -1,0 +1,41 @@
+
+
+.Top10News
+{
+    display: flex;
+    width: 60%;
+    margin : auto;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.blogs{
+    border: solid;
+    width: auto;
+    margin: auto;
+}
+
+.Top10mini
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.title{
+    text-align: center;
+}
+
+.Loadmore{
+    border-radius: 5px;
+    background-color: aqua;
+    padding: 10px;
+    cursor: pointer;
+}
+
+Loadmore-div{
+    margin: 15px;
+    align-self: center;
+}
+
+

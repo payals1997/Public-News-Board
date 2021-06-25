@@ -1,10 +1,14 @@
-import Routes from './components/Routes'
+import Routing from "./components/Routes/Routes";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
-      <Routes />
-    </>
+    <div className="App">
+      <Routing />
+      <div className="footerStyle">
+        <Footer />
+      </div>
+    </div>
   );
 }
 

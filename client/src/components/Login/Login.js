@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router';
 import { Grid, Paper, Avatar, TextField, Button, Typography, Link } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -6,10 +6,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import axios from 'axios';
 import { Redirect } from 'react-router';
-import Register from '../Register';
 
 const Login = () => {
-
 
     const paperStyle = { padding: 20, height: '70vh', width: 280, margin: "20px auto" }
     const avatarStyle = { backgroundColor: '#3f51b5' }
@@ -25,7 +23,7 @@ const Login = () => {
     function login() {
         const data = { email: email, password: password };
         try {
-            const token = axios.post("http://localhost:8080/signin", data).then((response) => {
+            const token = axios.post("http://localhost:3001/signin", data).then((response) => {
                if(response.data.error)
                {
                 alert(response.data.error);
@@ -34,24 +32,21 @@ const Login = () => {
                 localStorage.setItem("role", response.data.role);
                 setRole(response.data.role);
                 setLoggedIn(true);
+                alert("You Logged In Successfully !!!!");
+               
                }
               
             })
         } catch (err) {
+
             console.log(err);
         }
     }
 
-    // if ((loggedIn === true) && role === 'admin') {
-    //     return <Redirect to="/admin" />
-    // }
-    // if (loggedIn === true && role === 'reporter') {
-    //     return <Redirect to="/reporter" />
-    // }
+    if (loggedIn === true && role==='admin') {
+        return <Redirect to="/dashboard" />
+    }
 
-    // if (loggedIn === true && role === 'reader') {
-    //     return <Redirect to="/reader" />
-    // }
     return (
         <Grid>
             <Paper elevation={10} style={paperStyle}>
@@ -74,9 +69,6 @@ const Login = () => {
                 <Button type='submit' onClick={login} color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
 
                 <Typography > Do you have an account ?
-                    {/* <Link href="#" onClick={() => { history.push("/signup"); }} >
-                        Sign Up
-                    </Link> */}
                     <Link href="#" onClick={() => { history.push("/signup"); }} >
                         Sign Up
                     </Link>
@@ -88,3 +80,4 @@ const Login = () => {
 }
 
 export default Login
+

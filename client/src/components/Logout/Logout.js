@@ -1,15 +1,24 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useHistory } from 'react-router';
+import { useEffect } from 'react';
+import { Redirect } from 'react-router';
 
-export default function Logout() {
+export default function Logout({setLoggedIn}) {
    localStorage.removeItem("token");
    localStorage.removeItem("role");
+   const history = useHistory();
+
+   const logedout = ()=>{
+    {alert("You have been logged out!!!")}
+    console.log("bbyee");
+    // setLoggedIn(false)
+    history.push("/");
+   }
    
-    return (
-        <div>
-            <h1>You have been logged out!!!</h1>
-            <Link to = "/signin">Login Again</Link>
-        </div>
-    )
+   useEffect(()=>{
+       logedout();
+   },[])
+   
+    return null;
 }

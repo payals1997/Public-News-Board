@@ -1,0 +1,17 @@
+.paperStyle {
+    padding: 30px 20px;
+    width: 300;
+    margin: 20px auto;
+}
+
+.headerStyle {
+    margin: 0
+}
+
+.avatarStyle {
+    background-color: blue
+}
+
+.marginTop {
+    margin-top: 5
+}

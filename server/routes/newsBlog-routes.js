@@ -38,7 +38,6 @@ router.post("/byId/:id", async (req, resp)=>{
     });
     resp.json(TableData);
   });
-  
 
 
 // inserting News Data in NewsBlogs Table

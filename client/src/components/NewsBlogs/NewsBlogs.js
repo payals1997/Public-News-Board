@@ -5,6 +5,7 @@ const NewsBlogs = ({data})=>
 {
     let history = useHistory()
     const blogData = data;
+    console.log({data});
     return(
         <div className="main" title="main">
         
@@ -26,7 +27,7 @@ const NewsBlogs = ({data})=>
                                         <b>Reported by {blog.Reporter_name}</b></span>            
                                 </div>
                                     <spam className='readMore' onClick={()=>{history.push('/readmore/'+blog.id)}}>read more</spam>
-                                    <span className='readMore' > {blog.views}viws</span>
+                                    <span className='readMore' > {blog.views} views</span>
                             </div>
                         </div>
                     )
