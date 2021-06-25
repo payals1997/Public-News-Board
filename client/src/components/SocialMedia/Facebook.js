@@ -6,7 +6,7 @@ export default function Whatsapp({id}) {
       var url=`http://localhost:3000/${blogId}`
     return (
         <div>
-           <WhatsappShareButton url = "https://github.com/">
+           <WhatsappShareButton url = {url}>
                <WhatsappIcon logoFillColor = "white" round={true} size="40px"></WhatsappIcon>
                </WhatsappShareButton>
                
@@ -14,7 +14,7 @@ export default function Whatsapp({id}) {
                <FacebookIcon logoFillColor = "white" round={true} size="40px"></FacebookIcon>
                </FacebookShareButton> 
 
-               <TwitterShareButton url = "http://localhost:3000/readmore/1">
+               <TwitterShareButton url = {url}>
                <TwitterIcon logoFillColor = "white" round={true} size="40px"></TwitterIcon>
                </TwitterShareButton>
         </div>
