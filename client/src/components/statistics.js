@@ -3,6 +3,7 @@
 //npm install chartjs-plugin-datalabels --save
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import "./statistics.styles.scss";
 
 function Statistics({ TrendingNews, NewsViews }) {
   const state = {
@@ -52,8 +53,10 @@ function Statistics({ TrendingNews, NewsViews }) {
   };
 
   return (
-    <div style={{ height: "400px", width: "850px" }}>
-      <Bar data={state} options={options}></Bar>
+    <div className="chartParent">
+      <div style={{ height: "400px", width: "850px" }}>
+        <Bar data={state} options={options}></Bar>
+      </div>
     </div>
   );
 }

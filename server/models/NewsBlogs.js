@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       content: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       Reporter_name: {
@@ -34,7 +34,8 @@ module.exports = (sequelize, DataTypes) => {
       },
       views: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
+        defaultValue: 0,
       },
       newsCity: {
         type: DataTypes.STRING,
@@ -42,11 +43,17 @@ module.exports = (sequelize, DataTypes) => {
       },
       isDeleted: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: false,
       },
     },
+
     {
-      createdAt: false,
+      created_at: {
+        allowNull: false,
+        type: DataTypes.DATE,
+        defaultValue: sequelize.fn("NOW"),
+      },
       updatedAt: false,
     }
   );
