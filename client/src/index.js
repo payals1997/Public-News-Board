@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import HambergerApp from "./components/HambergerApp";
+import StatisticsApp from "./components/statisticsApp";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <HambergerApp />
+  
   </React.StrictMode>,
   document.getElementById("root")
 );
