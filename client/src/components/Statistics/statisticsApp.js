@@ -15,9 +15,6 @@ function StatisticsApp() {
       const myTrending = await axios.get(
         `http://localhost:3001/trendState/trending`
       );
-
-      console.log(myTrending);
-
       myTrending.data.map((mydata) => {
         setTrendingNews((arr) => [...arr, mydata.title]);
       });
@@ -29,17 +26,12 @@ function StatisticsApp() {
       myViews.data.map((mydata) => {
         setNewsViews((arr) => [...arr, mydata.views]);
       });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
     trendStateApi();
   }, []);
-
-  console.log(NewsViews);
-  console.log(TrendingNews);
   return (
     <div>
       <Statistics NewsViews={NewsViews} TrendingNews={TrendingNews} />

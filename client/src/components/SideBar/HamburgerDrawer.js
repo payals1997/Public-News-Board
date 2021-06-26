@@ -80,7 +80,6 @@ export default function SwipeableTemporaryDrawer({
   allNewsCity,
   catAndCity,
 }) {
-  console.log(catAndCity);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);

@@ -2,8 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import SwipeableTemporaryDrawer from "./HamburgerDrawer";
 
-function HambergerApp({catAndCity, setCatAndCity}) {
-
+function HambergerApp({ catAndCity, setCatAndCity }) {
   const [allCategory, setAllCategory] = useState([]);
   const [allNewsCity, setAllNewsCategory] = useState([]);
 
@@ -22,9 +21,7 @@ function HambergerApp({catAndCity, setCatAndCity}) {
       myAllNewsCity.data.map((cat) => {
         setAllNewsCategory((arr) => [...arr, cat.newsCity]);
       });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   useEffect(() => {
     newsApi();
