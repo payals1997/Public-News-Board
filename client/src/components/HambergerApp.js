@@ -25,9 +25,7 @@ function HambergerApp() {
       myAllNewsCity.data.map((cat) => {
         setAllNewsCategory((arr) => [...arr, cat.newsCity]);
       });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   useEffect(() => {
     newsApi();

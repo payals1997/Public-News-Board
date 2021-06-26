@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import HambergerApp from "./HambergerApp";
+import HambergerApp from "./components/HambergerApp";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
