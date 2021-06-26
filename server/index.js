@@ -15,6 +15,8 @@ app.use("/newsBlogs", newsBlog_router);
 
 const userRouter = require("./routes/User");
 app.use("/", userRouter);
+const myTrendStateRoutes = require("./routes/trend-state-routes");
+app.use("/trendState", myTrendStateRoutes);
 
 db.sequelize.sync({ force: false, alter: true }).then(() => {
   app.listen("3001", () => {
