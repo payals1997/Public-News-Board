@@ -1,22 +1,24 @@
 const express = require("express");
+const cors = require("cors")
 const app = express();
+const db = require('./models')
 
-app.use(express.json());
+// parse application/json
 
-const db = require("./models");
-const cors = require("cors");
-var corsOptions = {
-  origin: "http://localhost:3000",
-};
+app.use(express.json())
+app.use(cors());
 
-app.use(cors(corsOptions));
+//Router
 
-//Routers
+const newsBlog_router = require("./routes/newsBlog-routes");
+app.use("/newsBlogs", newsBlog_router);
 
+const userRouter = require("./routes/User");
+app.use("/", userRouter);
 const myTrendStateRoutes = require("./routes/trend-state-routes");
 app.use("/trendState", myTrendStateRoutes);
 
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: false, alter: true }).then(() => {
   app.listen("3001", () => {
     console.log("server started at port 3001......");
   });
