@@ -1,12 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import HamburgerDrawer from "./HamburgerDrawer";
+import SwipeableTemporaryDrawer from "./HamburgerDrawer";
 
-function HambergerApp() {
-  const [catAndCity, setCatAndCity] = useState({
-    category: "all",
-    city: "all",
-  });
+function HambergerApp({catAndCity, setCatAndCity}) {
+
   const [allCategory, setAllCategory] = useState([]);
   const [allNewsCity, setAllNewsCategory] = useState([]);
 
@@ -25,14 +22,16 @@ function HambergerApp() {
       myAllNewsCity.data.map((cat) => {
         setAllNewsCategory((arr) => [...arr, cat.newsCity]);
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     newsApi();
   }, []);
   return (
     <div className="HambergerApp">
-      <HamburgerDrawer
+      <SwipeableTemporaryDrawer
         setCatAndCity={setCatAndCity}
         catAndCity={catAndCity}
         allCategory={allCategory}
