@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   return (
     <div className="App" title="data">
-      <Navbar></Navbar>
+      <Navbar />
       <div>
         <HambergerApp
           catAndCity={catAndCity}

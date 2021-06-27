@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Statistics from "./statistics";
-import "./statistics.css";
+import Navbar from "../Navbar";
+import "./statistics.styles.scss";
 
 function StatisticsApp() {
   const [TrendingNews, setTrendingNews] = useState([]);
@@ -34,6 +35,7 @@ function StatisticsApp() {
   }, []);
   return (
     <div>
+      <Navbar />
       <Statistics NewsViews={NewsViews} TrendingNews={TrendingNews} />
     </div>
   );

@@ -1,66 +1,70 @@
 const express = require("express");
 const router = express.Router();
 const { NewsBlogs } = require("../models");
-const {verifyToken} = require("../Middleware/AuthMiddleware");
-const multer = require('multer');
-const shortid = require('shortid');
-const fs = require('fs')
-const path = require('path')
-const { createNews } = require('../controller/addNews')
-
+const { verifyToken } = require("../Middleware/AuthMiddleware");
+const multer = require("multer");
+const shortid = require("shortid");
+const fs = require("fs");
+const path = require("path");
+const { createNews } = require("../controller/addNews");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-      cb(null, path.join(path.dirname(__dirname), '../client/public'));
+    cb(null, path.join(path.dirname(__dirname), "../client/public"));
   },
   filename: function (req, file, cb) {
-      cb(null, `news-images/`+ shortid.generate() + '-' + file.fieldname + path.extname(file.originalname))
-      
-  }
-})
+    cb(
+      null,
+      `/news-images/` +
+        shortid.generate() +
+        "-" +
+        file.fieldname +
+        path.extname(file.originalname)
+    );
+  },
+});
 
 const upload = multer({ storage });
 
-let cpUpload = upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }])
-router.post("/", cpUpload, createNews)
-
+let cpUpload = upload.fields([
+  { name: "image", maxCount: 1 },
+  { name: "video", maxCount: 1 },
+]);
+router.post("/", cpUpload, createNews);
 
 //fetching all data from NewsBlogs Table
 
 router.get("/", verifyToken, async (req, resp) => {
   const TableData = await NewsBlogs.findAll({
-    order: [["id", "DESC"]]
-  }
-  );
+    order: [["id", "DESC"]],
+  });
   resp.json(TableData);
 });
 
 //fetching data fro NewsBlogs Table by id
 
-router.get("/byId/:id", async (req, resp)=>{
-const id =  req.params.id;
-const rowdata = await NewsBlogs.findByPk(id);
-resp.json(rowdata);
+router.get("/byId/:id", async (req, resp) => {
+  const id = req.params.id;
+  const rowdata = await NewsBlogs.findByPk(id);
+  resp.json(rowdata);
 });
 
 //fetching views on the basis of id
 
-router.post("/byId/:id", async (req, resp)=>{
-  const id =  req.params.id;
-   await NewsBlogs.increment('views', { by: 1, where: { id: id }});
-
-  });
+router.post("/byId/:id", async (req, resp) => {
+  const id = req.params.id;
+  await NewsBlogs.increment("views", { by: 1, where: { id: id } });
+});
 
 //fetching max viewd news
 
-  router.get("/top10", async (req, resp) => {
-    const TableData = await NewsBlogs.findAll({
-      order: [["views", "DESC"]],
-      limit: 10,
-    });
-    resp.json(TableData);
+router.get("/top10", async (req, resp) => {
+  const TableData = await NewsBlogs.findAll({
+    order: [["views", "DESC"]],
+    limit: 10,
   });
-
+  resp.json(TableData);
+});
 
 // inserting News Data in NewsBlogs Table
 
@@ -69,8 +73,6 @@ router.post("/byId/:id", async (req, resp)=>{
 //   await NewsBlogs.create(row);
 //   resp.json(row);
 // });
-
-
 
 // Finding data on the basis of category
 router.get("/category/:category", async (req, resp) => {
@@ -109,6 +111,5 @@ router.get("/allNewsCity", async (req, resp) => {
   });
   resp.json(TableData);
 });
-
 
 module.exports = router;

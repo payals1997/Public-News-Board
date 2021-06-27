@@ -1,46 +1,36 @@
-
-
-.Top10News
-{
-    display: flex;
-    width: 60%;
-    margin : auto;
-    flex-direction: column;
-    justify-content: center;
-    
+.Top10News {
+  display: flex;
+  width: 60%;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.blogs{
-    
-    width: auto;
-    margin: auto;
+.blogs {
+  width: auto;
+  margin: auto;
 }
 
-.Top10mini
-{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.Top10mini {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
-.title{
-    text-align: center;
-}
-
-.Loadmore{
-    border-radius: 5px;
-    background-color: #8a8ab5;
-    color: black;
-    padding: 5px;
-    align-self: center;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-left: 50%;
-    margin-bottom: 20px;
-}
-.LoadMorediv{
-    margin-top: 20px;
+.title {
+  text-align: center;
 }
 
-
-
-
+.Loadmore {
+  border-radius: 5px;
+  background-color: #8a8ab5;
+  color: black;
+  padding: 5px;
+  align-self: center;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 50%;
+  margin-bottom: 20px;
+}
+.LoadMorediv {
+  margin-top: 20px;
+}

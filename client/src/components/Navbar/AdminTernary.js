@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 function AdminTernary({ stats, role, handleClick, handleClickTwo }) {
   return (
     <>
-      {stats === false && role === "admin" ? (
+      {stats === false ? (
         <Link to="/statistics" onClick={handleClick}>
           STATISTICS
         </Link>
       ) : (
         <Link to="/dashboard" onClick={handleClickTwo}>
-          DASH
+          DASHBOARD
         </Link>
       )}
     </>

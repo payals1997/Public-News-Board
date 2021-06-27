@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       video: {
         type: DataTypes.STRING,
         allowNull: true,
+        defaultValue: null,
       },
       category: {
         type: DataTypes.STRING,
@@ -59,4 +60,3 @@ module.exports = (sequelize, DataTypes) => {
   );
   return NewsBlogs;
 };
-

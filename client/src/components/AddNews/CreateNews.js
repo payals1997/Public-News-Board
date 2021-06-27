@@ -15,6 +15,7 @@ import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import Videocam from "@material-ui/icons/Videocam";
 import axios from "axios";
 import Navbar from "../Navbar";
+import { useHistory } from "react-router-dom";
 
 const defaultProps = {
   bgcolor: "background.paper",
@@ -35,7 +36,7 @@ function CreateNews() {
   const headerStyle = { margin: 0 };
   const gridStyle = { margin: "15px" };
   const textStyle = { margin: "10px" };
-
+  const history = useHistory();
   const imageHandler = (e) => {
     setImage(e.target.files[0]);
   };
@@ -57,6 +58,7 @@ function CreateNews() {
     axios.post("http://localhost:3001/newsBlogs/", formData).then(() => {
       console.log(formData);
     });
+    history.push("/dashboard");
   };
 
   return (
@@ -147,7 +149,11 @@ function CreateNews() {
             >
               <MenuItem value="">Category</MenuItem>
               <MenuItem value="Entertainment">Entertainment</MenuItem>
+              <MenuItem value="Science">Science</MenuItem>
+              <MenuItem value="Crime">Crime</MenuItem>
               <MenuItem value="Sports">Sports</MenuItem>
+              <MenuItem value="Health">Health</MenuItem>
+              <MenuItem value="Finance">Finance</MenuItem>
               <MenuItem value="Politics">Politics</MenuItem>
               <MenuItem value="Scam">Scam</MenuItem>
             </Select>
