@@ -1,20 +1,19 @@
-import ReadMore from "../NewsBlogs/ReadMore"
-import '../../App.css';
+import ReadMore from "../NewsBlogs/ReadMore";
+import "../../App.css";
 import Dashboard from "../Dashboard/Dashboard";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Home from "../Homepg/Home"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "../Homepg/Home";
 import Register from "../Register";
 import Login from "../Login/Login";
 import Logout from "../Logout/Logout";
 import Footer from "../Footer/Footer";
 import Statistics from "../Statistics";
-import AddNews from "../AddNews" 
+import AddNews from "../AddNews";
 
 const Routing = () => {
   return (
     <>
       <Router>
-
         <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/signup" exact component={Register}></Route>
@@ -30,7 +29,7 @@ const Routing = () => {
         <Footer />
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Routing;
