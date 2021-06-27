@@ -44,7 +44,7 @@ const ReadMore = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            
         </>
     );
 }
