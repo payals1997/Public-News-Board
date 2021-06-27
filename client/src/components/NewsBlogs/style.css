@@ -99,3 +99,9 @@
     margin: auto;
 }
 
+.options{
+    justify-content: space-between;
+    display: flex;
+    margin: 10px;
+}
+
