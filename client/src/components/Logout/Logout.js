@@ -1,22 +1,19 @@
-
-import { useHistory } from 'react-router';
-import { useEffect } from 'react';
-
+import { useHistory } from "react-router";
+import { useEffect } from "react";
 
 export default function Logout() {
-   localStorage.removeItem("token");
-   localStorage.removeItem("role");
-   const history = useHistory();
+  localStorage.removeItem("token");
+  localStorage.removeItem("role");
+  const history = useHistory();
 
-   const logedout = ()=>{
-    alert("You have been logged out!!!")
-    console.log("bbyee");
+  const logedout = () => {
+    alert("You have been logged out!!!");
     history.push("/");
-   }
-   
-   useEffect(()=>{
-       logedout();
-   },[])
-   
-    return null;
+  };
+
+  useEffect(() => {
+    logedout();
+  }, []);
+
+  return null;
 }
