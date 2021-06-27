@@ -1,0 +1,19 @@
+input 
+{
+    display: none;
+}
+
+.mediaUploadIcons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.formSubmitButton {
+    // position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
