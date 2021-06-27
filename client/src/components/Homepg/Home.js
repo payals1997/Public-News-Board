@@ -19,9 +19,6 @@ const Home = () => {
             <span className="Loadmore" onClick={() => { history.push('/signin') }}>Load More</span>
             </div>
             <br></br>
-            <div>
-                <Footer />
-            </div>
         </>
     )
 }
