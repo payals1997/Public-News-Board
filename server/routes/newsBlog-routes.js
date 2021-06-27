@@ -2,6 +2,28 @@ const express = require("express");
 const router = express.Router();
 const { NewsBlogs } = require("../models");
 const {verifyToken} = require("../Middleware/AuthMiddleware");
+const multer = require('multer');
+const shortid = require('shortid');
+const fs = require('fs')
+const path = require('path')
+const { createNews } = require('../controller/addNews')
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+      cb(null, path.join(path.dirname(__dirname), '../client/public'));
+  },
+  filename: function (req, file, cb) {
+      cb(null, `news-images/`+ shortid.generate() + '-' + file.fieldname + path.extname(file.originalname))
+      
+  }
+})
+
+const upload = multer({ storage });
+
+let cpUpload = upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }])
+router.post("/", cpUpload, createNews)
+
 
 //fetching all data from NewsBlogs Table
 
@@ -38,16 +60,15 @@ router.post("/byId/:id", async (req, resp)=>{
     });
     resp.json(TableData);
   });
-  
 
 
 // inserting News Data in NewsBlogs Table
 
-router.post("/", async (req, resp) => {
-  const row = req.body;
-  await NewsBlogs.create(row);
-  resp.json(row);
-});
+// router.post("/", async (req, resp) => {
+//   const row = req.body;
+//   await NewsBlogs.create(row);
+//   resp.json(row);
+// });
 
 
 
